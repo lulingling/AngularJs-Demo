@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Directive and Controller Session</title>
+    <script src="../js/angular.js"></script>
+</head>
+<body style="padding: 10px;">
+<div ng-app="app">
+    <div ng-controller="AppCtrl">
+        <div enter="loadMoreData()">I'm here.</div>
+        <div enter="delData()">Delete this data.</div>
+
+        <food apple orange banana>所有食物</food>
+        <br/>
+        <food apple orange>所有食物</food>
+    </div>
+</div>
+</body>
+<script src="directive-controller-session.js"></script>
+</html>
