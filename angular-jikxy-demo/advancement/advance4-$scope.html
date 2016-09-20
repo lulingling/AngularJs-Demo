@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJs 进阶4 $scope</title>
+    <link rel="stylesheet" href="../css/foundation.min.css" type="text/css">
+    <script src="../js/angular.js"></script>
+</head>
+<body style="padding: 10px;" ng-app="app">
+
+<div ng-controller="MyCtrl">
+    <input type="text" placeholder="reverse input text" ng-model="msg">
+    <h1 ng-clock class="ng-clock">{{reverse()}}</h1>
+</div>
+
+<div ng-controller="NextCtrl">
+    <input type="text" placeholder="username" ng-model="user.uname">
+    <input type="text" placeholder="password" ng-model="user.pwd">
+    <button class="button" ng-click="login()">登录</button>
+    <div ng-show="errormsg.length > 0">{{errormsg}}</div>
+</div>
+
+<script src="myctrl4-$scope.js"></script>
+</body>
+</html>
