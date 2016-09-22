@@ -1,1 +1,5 @@
 node_modules/
+sportsstore/.dpd/
+sportsstore/data/
+sportsstore/resources/
+sportsstore/app.dpd
