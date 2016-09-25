@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angulay Advancement Services</title>
+    <link rel="stylesheet" href="../css/foundation.min.css">
+    <style>
+        fieldset {
+            border: 1px solid #000;
+            padding: 8px;
+            margin-top: 10px;
+        }
+
+        .tx {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+            margin-left: 80px;
+        }
+    </style>
+    <script src="../js/angular.js"></script>
+    <script src="common-command.js"></script>
+</head>
+<body style="padding: 10px;" ng-app="app">
+<div ng-controller="UserCtrl">
+    <form name="f" ng-submit="register(user)">
+        <fieldset>
+            <legend>基本信息</legend>
+            <img ng-src="{{user.icon}}"
+                 ng-class="{'tx':user.showicon}"
+                 ng-show="user.isShowImg"
+                 alt="avatar">
+            <div>
+                <input type="text" ng-model="user.uname" placeholder="用户名" required>
+                <input type="password" ng-model="user.pwd" placeholder="密码" required>
+                职位：
+                <select>
+                    <option value="">--请选择--</option>
+                    <option value="1" ng-selected="user.zw == '1'">JAVA工程师</option>
+                    <option value="2" ng-selected="user.zw == '2'">.NET工程师</option>
+                </select>
+                性别：
+                <input type="radio" ng-checked="user.sex=='1'" name="sex">&nbsp;男&nbsp;
+                <input type="radio" ng-checked="user.sex == '0'" name="sex">&nbsp;女&nbsp;
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>爱好</legend>
+            <div>
+                <input type="checkbox" ng-checked="isChecked(1)" name="checkbox">&nbsp;篮球&nbsp;
+                <input type="checkbox" ng-checked="isChecked(2)" name="checkbox">&nbsp;足球&nbsp;
+                <input type="checkbox" ng-checked="isChecked(3)" name="checkbox">&nbsp;排球&nbsp;
+            </div>
+        </fieldset>
+
+        <button type="submit" ng-disabled="f.$invalid" class="button expanded">提交</button>
+    </form>
+</div>
+</body>
+</html>
