@@ -1,0 +1,30 @@
+<html ng-app="exampleApp">
+<head>
+    <title>SCE</title>
+    <link rel="stylesheet" href="../css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="../css/bootstrap-theme.css" type="text/css">
+    <script src="../lib/angular.js"></script>
+    <script>
+        angular.module("exampleApp", [])
+                .controller("defaultCtrl", function ($scope, $sce) {
+                    $scope.htmlData =
+                            "<p>This is <b onmouseover=alert('Attacked!')>dangerous</b> data</p>";
+
+                    $scope.$watch("htmlData", function (html) {
+                        $scope.trustedData = $sce.trustAsHtml(html);
+                    })
+                })
+    </script>
+</head>
+<body ng-controller="defaultCtrl">
+
+<div class="well">
+    <p>
+        <input class="from-control" ng-model="htmlData" style="width: 700px;">
+    </p>
+
+    <p ng-bind-html="trustedData"></p>
+</div>
+
+</body>
+</html>
