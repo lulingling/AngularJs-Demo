@@ -1,0 +1,40 @@
+<html ng-app="exampleApp">
+<head>
+    <title>Directives</title>
+    <link rel="stylesheet" href="../css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="../css/bootstrap-theme.css" type="text/css">
+    <script src="../lib/angular.js"></script>
+    <script type="text/template" id="scopeTemplate">
+        <div class="panel-body">
+            <p>Name: <input ng-model="data.name"></p>
+            <p>City: <input ng-model="city"></p>
+            <p>Country: <input ng-model="country"></p>
+        </div>
+    </script>
+    <script>
+        angular.module("exampleApp", [])
+                .directive("scopeDemo", function () {
+                    return {
+                        template: function (elem, attrs) {
+                            return angular.element(document.querySelector("#scopeTemplate")).html();
+                        },
+                        scope: {}
+                    }
+                })
+                .controller("scopeCtrl", function ($scope) {
+                    $scope.data = {name: "Adam"};
+                    $scope.city = "London";
+                })
+    </script>
+</head>
+<body>
+
+<div ng-controller="scopeCtrl">
+    <div class="panel panel-default">
+        <div class="panel-body" scope-demo></div>
+        <div class="panel-body" scope-demo></div>
+    </div>
+</div>
+
+</body>
+</html>
