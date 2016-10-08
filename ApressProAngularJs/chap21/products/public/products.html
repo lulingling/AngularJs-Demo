@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="../../../css/bootstrap-theme.css" type="text/css">
     <script src="../../../lib/angular.js"></script>
     <script src="products.js"></script>
+    <script src="increment.js"></script>
+    <script src="angular-resource.js"></script>
 </head>
 <body ng-controller="defaultCtrl">
 <div class="panel panel-primary">
     <h3 class="panel-heading">Products</h3>
-    <ng-include src="tableView.html" ng-show="displayMode == 'list' "></ng-include>
-    <ng-include src="editView.html" ng-show="displayMode == 'edit' "></ng-include>
+    <ng-include src="'tableView.html'" ng-show="displayMode == 'list' "></ng-include>
+    <ng-include src="'editView.html'" ng-show="displayMode == 'edit' "></ng-include>
 </div>
 </body>
 </html>
